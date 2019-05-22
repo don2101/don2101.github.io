@@ -2,9 +2,9 @@
 
 python 기초 개념 및 문법
 
+ 
 
-
-
+ 
 
 ## I.  Python?
 
@@ -12,7 +12,7 @@ python 기초 개념 및 문법
 - 생산성이 높다.
 - 다양한 라이브러리
 
-
+ 
 
 ### (1) 저장
 
@@ -24,7 +24,7 @@ python 기초 개념 및 문법
 2. 글자
 3. Boolean
 
-
+ 
 
 - 파이썬은 {}를 쓰지 않고 `:` 와 indentation을 사용
   - indentation은 4 space 기준(1 tab)

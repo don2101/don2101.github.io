@@ -8,8 +8,8 @@
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css');
 // ---------------------------------------------
 
 
@@ -22,6 +22,8 @@
 		 url('../../lib/font/league_gothic-webfont.woff') format('woff'),
 		 url('../../lib/font/league_gothic-webfont.ttf') format('truetype'),
 		 url('../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular') format('svg');
+	src: url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css'),
+		 url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css');
 
 	font-weight: normal;
 	font-style: normal;
