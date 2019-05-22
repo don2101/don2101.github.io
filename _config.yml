@@ -9,8 +9,8 @@ url: "https://don2101.github.io/"
 # Secondary Parameters
 baseurl: "/"
 header-img: ./img/home-bg.jpg
-headercolor: "#181818"
-logo: ./dev-blog/img/logos/Project-Pages-New-Logo-Inverted.png
+headercolor: "#FFFFFF"
+logo: 
 
 # Tertiary Parameters
 github_username:  projectpages
