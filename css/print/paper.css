@@ -43,7 +43,7 @@ html {
 /* SECTION 3: Set body font face, size, and color.
    Consider using a serif font for readability. */
 body, p, td, li, div, a {
-	font-size: 16pt!important;
+	font-size: 15pt!important;
 	font-family: Georgia, "Times New Roman", Times, serif !important;
 	color: #000;
 }
