@@ -7,10 +7,10 @@ url: "https://don2101.github.io/"
 
 
 # Secondary Parameters
-baseurl: "/dev-blog"
+baseurl: "./dev-blog"
 header-img: img/home-bg.jpg
 headercolor: "#181818"
-logo: /dev-blog/img/logos/Project-Pages-New-Logo-Inverted.png
+logo: ./dev-blog/img/logos/Project-Pages-New-Logo-Inverted.png
 
 # Tertiary Parameters
 github_username:  projectpages
