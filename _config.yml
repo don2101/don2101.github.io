@@ -1,16 +1,16 @@
 # Site settings
 title: don's blog
-description: "An Integrated Scientific Blogging Template"
-url: "https://projectpages.github.io"
+description: "development study blog"
+url: "https://don2101.github.io/"
 
 
 
 
 # Secondary Parameters
-baseurl: "/project-pages"
+baseurl: "/dev-blog"
 header-img: img/home-bg.jpg
-headercolor: "#FFFFFF"
-logo: /project-pages/img/logos/Project-Pages-New-Logo-Inverted.png
+headercolor: "#181818"
+logo: /dev-blog/img/logos/Project-Pages-New-Logo-Inverted.png
 
 # Tertiary Parameters
 github_username:  projectpages
