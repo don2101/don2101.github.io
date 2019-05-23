@@ -14,7 +14,7 @@ python 기초 개념 및 문법
 - 다양한 라이브러리
 
 
-</br>
+<br>
 
 ### (1) 저장
 
@@ -28,13 +28,13 @@ python 기초 개념 및 문법
 
 3. Boolean
 
-</br>
+<br>
 
 파이썬은 {}를 쓰지 않고 `:` 와 indentation을 사용
 
 - indentation은 4 space 기준(1 tab)
 
-</br>
+<br>
 
 ##### 변수 활용하기
 
