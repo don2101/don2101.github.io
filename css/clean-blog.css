@@ -11,9 +11,8 @@ body {
   font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
   font-size: 15px;
   color: #404040;
-  margin: 10px;
 }
-p {
+p li {
   line-height: 1.5;
   margin: 10px 0;
 }
