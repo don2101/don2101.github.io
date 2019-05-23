@@ -12,12 +12,15 @@ body {
   font-size: 15px;
   color: #404040;
 }
-p li ul {
+p {
   line-height: 1.5;
-  margin: 10px 0;
 }
 p a {
   text-decoration: underline;
+}
+
+li {
+  margin: 10px;
 }
 
 p.red {
