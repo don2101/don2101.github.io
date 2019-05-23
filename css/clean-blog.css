@@ -12,7 +12,7 @@ body {
   font-size: 15px;
   color: #404040;
 }
-p li {
+p li ul {
   line-height: 1.5;
   margin: 10px 0;
 }
