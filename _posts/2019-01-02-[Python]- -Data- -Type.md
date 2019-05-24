@@ -8,6 +8,8 @@ python에서 기본적으로 제공하는, 자료를 저장하기 위한 객체
 
 ## I. mutable vs immutable?
 
+---
+
 값이 변할 수 있다는 것과 값이 변할 수 없다는 것은 어떤의미일까요?
 
 <br>
@@ -23,6 +25,8 @@ python에서 모든 자료는 객체입니다. c나 java같은 경우 int나 cha
 <br>
 
 ## II. immutable
+
+---
 
 변경 불가능 하다는것은 실행단계에서 **자료가 변할 수 없다**는 것을 의미합니다.
 
@@ -43,7 +47,7 @@ a = 2 # a에 2의 값을 가진 integer객체 할당. a는 새로운 객체를 �
 
 일반적으로 a의 값이 1에서 2로 변경됐다고 생각할 수 있지만, integer객체는 immutable하다고 했습니다.
 
-실제로 a가 **가리키는 객체가 변경**된 것이지, **값이 변경된 것이 아닙니다**.
+실제로 a가 **가리키는 객체가 변경**된 것이지, **a의 값이 변경된 것이 아닙니다**.
 
 <br>
 
@@ -88,7 +92,7 @@ a = "hello!"
 
 #### 관련 함수
 
-> int(): integer형으로 변환
+##### int(): 정수형으로 변환
 
 ```python
 a = "12"
@@ -110,7 +114,7 @@ print(b)
   - 소괄호 안쓰고 s =  1, 2, 3, 4, 5 로도 할당 가능
 - x, y = 1, 2 또한 튜플
 
-##### 선언 방법
+> 선언 방법
 
 ```python
 # tuple 선언
@@ -125,9 +129,9 @@ print(x, z)
 >> ('hello', 'world!')
 ```
 
+<br>
 
-
-> 더하기가 가능하다
+> tuple끼리 더하기
 
 ```python
 t1 = (1, 2, 3)
@@ -138,13 +142,85 @@ print(t1)
 >> (1, 2, 3, 3, 4, 5)
 ```
 
+<br>
 
+> 인덱스 접근 가능
 
-
+```python
+print(t1[0])
+>> 1
+```
 
 <br>
 
-#### 3. string
+> immutable객체이기 때문에 특정 인덱스 수정은 불가
+
+```python
+t1[0] = 2
+>> t1[0] = 0
+TypeError: 'tuple' object does not support item assignment
+```
+
+<br>
+
+#### 관련 함수
+
+**tuple(`iterable`):** iterable 객체를 tuple로 변환
+
+<br>
+
+**len(`tuple`):** 길이 구해서 반환
+
+```python
+print(len(t1))
+>> 6
+```
+
+<br>
+
+**sum(`tuple`):** 모든 요소 더해서 반환
+
+```python
+print(sum(t1))
+>> 18
+```
+
+<br>
+
+**reversed(`tuple`):** 모든 요소를 거꾸로하여 반환
+
+```python
+print(t1)
+>> (1, 2, 3, 3, 4, 5)
+
+t3 = reversed(t1)
+print(tuple(t3))
+>> (5, 4, 3, 3, 2, 1)
+```
+
+- **reversed 객체**가 반환되므로 list나 tuple로 바꿔서 출력할 수 있다. 
+- **기존 객체는 보존**된다.
+
+<br>
+
+**sorted(`tuple`):** tuple을 오름차순으로 정렬하여 list로 반환
+
+```python
+print(sorted(t1))
+>> [1, 2, 3, 3, 4, 5]
+
+# reverse=True 옵션 추가시 내림차순 정렬
+print(sorted(t1), reverse=True)
+>> [5, 4, 3, 3, 2, 1]
+```
+
+- 기존 객체는 보존
+
+<br>
+
+<br>
+
+### (4) string
 
 - 문자 혹은 문자열을 저장하는 객체
 - `' '` 혹은 `" "` 안에 자료를 선언
@@ -152,38 +228,129 @@ print(t1)
 ```python
 str1 = 'c'
 str2 = "hello world!"
+str3 = "Good Day!"
 ```
 
-- ord('a') : ascii code 변환
-- 'char'.upper() : 문자 대문자로 변환
-- 'char'.lower() : 소문자로 변환
+<br>
 
+> index접근 가능
 
+```python
+print(str2[0])
+>> 'h'
+```
 
+<br>
 
+> immutable객체 이기 때문에 특정 인덱스 수정은 불가
 
-- .replace(old, new, [ count])** : String 내부에 old가 있을경우 new로 변환 후 **반환**. count 갯수 만큼 시행
-- **.capitalize()** : 앞글자를 대문자로 만들어 **반환**
-- **.title()** : 어포스트로피나 공백 바로 이후 글자를 대문자로 만들어 **반환**
-- **.upper()** : 모두 대문자로 만들어 **반환**
-  - **.lower()** : 모두 소문자로
-- **.swapcase()** : 대문자를 소문자로 소문자를 대문자로 변환 후 **반환**
+```python
+str1[0] = 'a'
+>> str1[0] = 'a'
+TypeError: 'str' object does not support item assignment
+```
 
+<br>
 
+#### string 변환 관련 함수
 
+**str(`object`):** 객체를 string 객체로 변환하여 반환
 
+**ord(`character`):** 문자 하나를 ascii code로 변환하여 반환
 
-#### String 조작
+**`string`.upper():** 모든 문자 대문자로 변환하여 반환.
 
-- **.strip()** : 양쪽의 공백 문자들 제거
-  - **.lstrip()** : 왼쪽의 공백 문자들 제거
-  - **.rstrip()** : 오른쪽의 공백 문자들 제거
-- **"".join(iterable)** : 리스트 객체를 String으로 변환. " "을 사이에 삽입
-  - 리스트의 자료들은 반드시 String이어야 함
-- **map(자료형, 문자 리스트)** : 문자 리스트를 자료형으로 변환하여 리스트로 **반환**
-- **split()** : 구분자(delimeter)를 기준으로 문자를 리스트로 구분
-- **.find(x)** : 문자열에서 처음으로 나오는 x의 위치 반환. 없으면 -1 **반환**
-  - **.index(x)** : find(x)와 같지만 없을 경우 error 발생
+**`string`.lower() :** 모든 문자 소문자로 변환하여 반환.
+
+```python
+# string()
+print(str(12345))
+>> "12345"
+
+# ord()
+print(ord(str1))
+>> 99
+
+# .upper()
+print(str2.upper())
+>> "HELLO WORLD!"
+
+print(str3.lower())
+>> "good day!""
+```
+
+- 모두 기존 객체 보존
+
+<br>
+
+**.replace(old, new, [ count])**: String 내부에 old가 있을경우 new로 변환 후 **반환**. count 갯수 만큼 시행
+
+```python
+print(str2.replace('l', 'p', 2))
+>> "heppo world!"
+```
+
+- 기존객체 보존
+- 없으면 아무것도 하지 않음
+
+<br>
+
+**`string`.capitalize()** : 앞글자를 대문자로 만들어 **반환**
+
+**`string`.title()** : 어포스트로피나 공백 바로 이후 글자를 대문자로 만들어 **반환**
+
+**`string`.swapcase()** : 대문자를 소문자로 소문자를 대문자로 변환 후 **반환**
+
+```python
+# .capitalize()
+>> "Hello world!"
+
+# .swapcase()
+>> "gOOD dAY!"
+```
+
+<br>
+
+#### String 조작 관련 함수
+
+**.strip()** : 양쪽의 공백 문자들 제거
+
+- **.lstrip()** : 왼쪽의 공백 문자들 제거
+- **.rstrip()** : 오른쪽의 공백 문자들 제거
+
+<br>
+
+**"".join(`iterable`)** : list 객체를 String으로 변환하면서, 각 list 사이에 ""을 사이에 삽입하고 반환
+
+```python
+list1 = ["hello", "I'm", "a", "postman"]
+
+# 사이에 공백 문자 추가
+str4 = " ".join(list1)
+print(str4)
+
+>> "hello I'm a postman"
+```
+
+- 기존 객체 보존
+- list의 모든 요소는 string객체여야 함
+
+<br>
+
+**`string`.split()** : 구분자(delimeter)를 기준으로 문자열을 구분하여 list로 반환
+
+```python
+print(str2.split())
+>> ['hello', 'world!']
+```
+
+- 아무것도 넣지 않으면 **공백 문자 기준** 구분
+
+<br>
+
+**.find(x)** : 문자열에서 처음으로 나오는 x의 위치 반환. 없으면 -1 **반환**
+
+- **.index(x)** : find(x)와 같지만 없을 경우 error 발생
 
 
 
