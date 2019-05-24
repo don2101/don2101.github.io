@@ -24,7 +24,81 @@ python에서 모든 자료는 객체입니다. c나 java같은 경우 int나 cha
 
 <br>
 
-## II. immutable
+## II. mutable
+
+---
+
+#### 2. List
+
+- **[]**로 표현
+- **[번호]** : 해당 번호 인덱스에 접근
+- **mutable** : 수정 가능 객체
+- del : 자료 제거
+
+
+
+- 
+
+
+
+#### 3.range()
+
+- 숫자의 **시퀀스**를 나타내기 위해 사용
+- **range**라는 또 다른 자료형 사용
+- range(n) : 0 ~ n-1까지 값을 지정
+- range(n, m) : n ~ m-1 까지 값을 지정
+- range(n, m, s) : n ~ m-1 까지 +s만큼 증가하면서 값을 지정
+
+
+
+#### 4. 시퀀스에서 활용할 수 있는 연산자/함수
+
+- in, not in
+- '+'
+- s * n : n번 **반복하여 붙이기**
+- s[i:j]
+- s[i]
+- **len(s)** : 길이, **min(s)** : 최솟값, **max(s)** : 최댓값
+- **s.count(x)** : s내 x의 갯수
+
+
+
+#### 5. set
+
+- **집합**과 동일한 내용
+- **{}**로 표현
+- **mutable**
+- **중복된 값 불가**
+  - 중복되면 무시함
+- **index 접근 불가**. index의 의미가 없음
+- **a \- b** : 차집합
+- **a | b** = **a.union(b)** : 합집합
+- **a & b** = **a.intersection(b)** : 교집합
+- set을 활용하여 **list의 중복값을 제거**할 수 있다
+
+
+
+#### 6. dictionary
+
+- **key**, **value**가 쌍으로 구성된 자료구조
+  - key나 value값으로 접근하기 때문에 **순서가 중요하지 않다**
+- **{}**, **dict()**로 만들 수 있다
+- **mutable**
+- **len(dictionary)** : dictionary의 길이
+- **value** : list, dictionary포함 모든것이 가능
+  - **dictionary.values()**로 value값 확인 가능
+- **key** : immutable한 모든것이 가능(string, integer, float, boolean, tuple, range...)
+  - **dictionary['key']** : key로 value에 접근
+  - key로 접근하여 **자료 수정** 가능
+  - key로 접근하여 **자료 삽입** 가능
+  - **key는 중복 불가**
+  - **dictionary.keys()**로 key값 확인 가능
+
+
+
+
+
+## III. immutable
 
 ---
 
@@ -348,74 +422,23 @@ print(str2.split())
 
 <br>
 
-**.find(x)** : 문자열에서 처음으로 나오는 x의 위치 반환. 없으면 -1 **반환**
+**`string`.find(x)** : 문자열에서 처음으로 나오는 x의 위치 반환. 없으면 -1 **반환**
 
-- **.index(x)** : find(x)와 같지만 없을 경우 error 발생
+**`string`.index(x)** : find(x)와 같지만 없을 경우 error 발생
 
+```python
+# .find()
+print(str2.find('l'))
+print(str2.find('z'))
+>> 2
+>> -1
 
+# .index()
+print(str2.index('l'))
+print(str2.index('z'))
+>> 2
+>> print(str2.index('z'))
+ValueError: substring not found
+```
 
-#### 2. List
-
-- **[]**로 표현
-- **[번호]** : 해당 번호 인덱스에 접근
-- **mutable** : 수정 가능 객체
-- del : 자료 제거
-
-
-
-- 
-
-
-
-#### 3.range()
-
-- 숫자의 **시퀀스**를 나타내기 위해 사용
-- **range**라는 또 다른 자료형 사용
-- range(n) : 0 ~ n-1까지 값을 지정
-- range(n, m) : n ~ m-1 까지 값을 지정
-- range(n, m, s) : n ~ m-1 까지 +s만큼 증가하면서 값을 지정
-
-
-
-#### 4. 시퀀스에서 활용할 수 있는 연산자/함수
-
-- in, not in
-- '+'
-- s * n : n번 **반복하여 붙이기**
-- s[i:j]
-- s[i]
-- **len(s)** : 길이, **min(s)** : 최솟값, **max(s)** : 최댓값
-- **s.count(x)** : s내 x의 갯수
-
-
-
-#### 5. set
-
-- **집합**과 동일한 내용
-- **{}**로 표현
-- **mutable**
-- **중복된 값 불가**
-  - 중복되면 무시함
-- **index 접근 불가**. index의 의미가 없음
-- **a \- b** : 차집합
-- **a | b** = **a.union(b)** : 합집합
-- **a & b** = **a.intersection(b)** : 교집합
-- set을 활용하여 **list의 중복값을 제거**할 수 있다
-
-
-
-#### 6. dictionary
-
-- **key**, **value**가 쌍으로 구성된 자료구조
-  - key나 value값으로 접근하기 때문에 **순서가 중요하지 않다**
-- **{}**, **dict()**로 만들 수 있다
-- **mutable**
-- **len(dictionary)** : dictionary의 길이
-- **value** : list, dictionary포함 모든것이 가능
-  - **dictionary.values()**로 value값 확인 가능
-- **key** : immutable한 모든것이 가능(string, integer, float, boolean, tuple, range...)
-  - **dictionary['key']** : key로 value에 접근
-  - key로 접근하여 **자료 수정** 가능
-  - key로 접근하여 **자료 삽입** 가능
-  - **key는 중복 불가**
-  - **dictionary.keys()**로 key값 확인 가능
+<br>
