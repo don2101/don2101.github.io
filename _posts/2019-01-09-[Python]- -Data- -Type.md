@@ -16,6 +16,8 @@ python에서 기본적으로 제공하는, 자료를 저장하기 위한 객체
 
 python에서 모든 자료는 객체입니다. c나 java같은 경우 int나 char등의 자료형으로 저장하기도 하지만, python의 경우 모든 자료를 객체로 저장합니다.
 
+우리가 일반적으로 a=1 이라고 선언하는 것이 a에 1이라는 값을 넣는게 아닌 **1이라는 값을 가진 integer 객체**가 들어가는 것입니다.
+
 따라서 같은 값이라도 다른 객체(메모리에서 다른 주소값을 가르키는 객체)일 수 있습니다.
 
 <br>
@@ -28,75 +30,249 @@ python에서 모든 자료는 객체입니다. c나 java같은 경우 int나 cha
 
 ---
 
-#### 2. List
+mutable객체는 실행 단계에서 객체 내부의 값을 **수정 할 수 있습니다.**
 
-- **[]**로 표현
-- **[번호]** : 해당 번호 인덱스에 접근
-- **mutable** : 수정 가능 객체
-- del : 자료 제거
+immutable에 속하는 list나 dictionary같은 객체들은 실행 단계에서 그 내부의 값을 언제든지 수정할 수 있습니다. 
 
+<br>
 
+### (1) List
 
-- 
+데이터를 순서 있게 나열한 자료형
 
+`[]`로 선언
 
+list안에 다른 자료형 선언 가능
 
-#### 3.range()
+```python
+# list선언, 다른 자료형도 같이 추가 가능
+list1 = ['a', 'b', 1, 2, 3, [1, 2, 3]]
+list2 = [1, 2, 3, 4, 5]
+```
 
-- 숫자의 **시퀀스**를 나타내기 위해 사용
-- **range**라는 또 다른 자료형 사용
-- range(n) : 0 ~ n-1까지 값을 지정
-- range(n, m) : n ~ m-1 까지 값을 지정
-- range(n, m, s) : n ~ m-1 까지 +s만큼 증가하면서 값을 지정
+<br>
 
+> Index 접근 가능
 
+```python
+print(list1[2])
+>> 1
+```
 
-#### 4. 시퀀스에서 활용할 수 있는 연산자/함수
+<br>
 
-- in, not in
-- '+'
-- s * n : n번 **반복하여 붙이기**
-- s[i:j]
-- s[i]
-- **len(s)** : 길이, **min(s)** : 최솟값, **max(s)** : 최댓값
-- **s.count(x)** : s내 x의 갯수
+> mutable객체이기 때문에 index값을 수정 가능
 
+```python
+list1[2] = 5
+print(list1)
+>> ['a', 'b', 5, 2, 3, [1, 2, 3]]
+```
 
+- 수정한 내용은 객체에 적용됩니다.
 
-#### 5. set
+<br>
 
-- **집합**과 동일한 내용
-- **{}**로 표현
-- **mutable**
-- **중복된 값 불가**
-  - 중복되면 무시함
-- **index 접근 불가**. index의 의미가 없음
-- **a \- b** : 차집합
-- **a | b** = **a.union(b)** : 합집합
-- **a & b** = **a.intersection(b)** : 교집합
-- set을 활용하여 **list의 중복값을 제거**할 수 있다
+> list끼리 더하기
 
+```python
+list3 = list1 + list2
+print(list3)
+>> ['a', 'b', 5, 2, 3, [1, 2, 3], 1, 2, 3, 4, 5]
+```
 
+- 더한 순서대로 뒤에 이어붙입니다.
 
-#### 6. dictionary
+<br>
 
-- **key**, **value**가 쌍으로 구성된 자료구조
-  - key나 value값으로 접근하기 때문에 **순서가 중요하지 않다**
-- **{}**, **dict()**로 만들 수 있다
-- **mutable**
-- **len(dictionary)** : dictionary의 길이
-- **value** : list, dictionary포함 모든것이 가능
-  - **dictionary.values()**로 value값 확인 가능
-- **key** : immutable한 모든것이 가능(string, integer, float, boolean, tuple, range...)
-  - **dictionary['key']** : key로 value에 접근
-  - key로 접근하여 **자료 수정** 가능
-  - key로 접근하여 **자료 삽입** 가능
-  - **key는 중복 불가**
-  - **dictionary.keys()**로 key값 확인 가능
+#### 관련 함수
 
+**list(`iterable`):** iterable 객체를 tuple로 변환
 
+<br>
 
+**len(`list`):** 길이 구해서 반환
 
+```python
+print(len(list1))
+>> 6
+```
+
+<br>
+
+**sum(`list`):** 모든 요소 더해서 반환
+
+```python
+print(sum(list2))
+>> 15
+```
+
+- list의 모든 객체가 숫자일 경우 가능
+
+<br>
+
+**reversed(`list`):** 모든 요소를 거꾸로하여 반환
+
+```python
+print(list1)
+>> ['a', 'b', 1, 2, 3, [1, 2, 3]]
+
+print(list(reversed(list1)))
+>> [[1, 2, 3], 3, 2, 1, 'b', 'a']
+```
+
+- **reversed 객체**가 반환되므로 list나 tuple로 바꿔서 출력할 수 있다. 
+- **기존 객체는 보존**된다.
+
+<br>
+
+**sorted(`list`):** tuple을 오름차순으로 정렬하여 list로 반환
+
+```python
+print(sorted(list1))
+>> [1, 2, 3, [1, 2, 3], 'a', 'b']
+
+# reverse=True 옵션 추가시 내림차순 정렬
+print(sorted(list1), reverse=True)
+>> ['b', 'a', [1, 2, 3], 3, 2, 1]
+```
+
+- 기존 객체는 보존
+
+<br>
+
+<br>
+
+### (2) set
+
+**집합**과 동일한 개념
+
+**{}**로 선언
+
+**중복된 값 불가**
+
+- 중복되면 무시함
+
+**index 접근 불가**
+
+- 순서가 없는 객체이기 때문에 index의 의미가 없음
+
+```python
+set1 = {1, 2, 3, 1, 2}
+set2 = {1, 2, 4, 5}
+print(set1)
+# 중복된 값 무시
+>> set([1, 2, 3])
+
+# index 접근 시도
+print(set1[0])
+>> print(set1[0])
+TypeError: 'set' object does not support indexing
+```
+
+<br>
+
+#### 연산자
+
+**a \- b** : 차집합하여 반환
+
+**a | b** = **a.union(b)**: 합집합하여 반환
+
+**a & b** = **a.intersection(b)**: 교집합하여 반환
+
+set을 활용하여 **list의 중복값을 제거**할 수 있다
+
+```python
+# 차집합
+print(set1 - set2)
+>> set([3])
+
+# 합집합
+print(set1.union(set2))
+>> set([1, 2, 3, 4, 5])
+
+# 교집합
+print(set1.intersection(set2))
+>> set([1, 2])
+```
+
+- 모든 연산자는 원본 객체를 보존
+
+<br>
+
+<br>
+
+### (3) dictionary
+
+**key**, **value**가 1:1 쌍으로 이루어진 자료형
+
+- key나 value값으로 접근하기 때문에 **순서가 중요하지 않다**
+
+**{}**, **dict()**로 선언할 수 있다.
+
+value는 중복이 될 수 있지만, key는 중복이 될 수 없다.
+
+key값을 통해 value에 접근하고 수정할 수 있다.
+
+```python
+dict1 = {
+  "fruit1": "apple",
+  "fruit2": "grape",
+	# key값으로 숫자도 넣을 수 있다.
+  1: "one",
+  "two": 2,
+}
+
+# key값을 통해 접근
+print(dict1["fruit1"])
+print(dict1["fruit2"])
+print(dict1[1])
+print(dict1["two"])
+
+# key값을 통해 value 수정
+dict1["two"] = "two"
+print(dict1["two"])
+>> "two"
+```
+
+<br>
+
+#### 관련 함수
+
+**len(`dictionary`)** : dictionary 모든 key의 갯수
+
+```python
+print(len(dict1))
+>> 4
+```
+
+<br>
+
+**`dictionary`.values()**: dictionary의 모든 value값 **반환**
+
+**`dictionary`.keys()**: dictionary의 모든 key값 **반환**
+
+**`dictionary`.items()**: dictionary의 모든 key, value를 tuple로 반환
+
+```python
+# .values()
+print(dict1.values())
+>> ['one', 'apple', 'grape', 'two']
+
+# .keys()
+print(dict1.keys())
+>> [1, 'fruit1', 'fruit2', 'two']
+
+# .items()
+print(dict1.items())
+>> [(1, 'one'), ('fruit1', 'apple'), ('fruit2', 'grape'), ('two', 'two')]
+```
+
+<br>
+
+<br>
+
+<br>
 
 ## III. immutable
 
@@ -104,7 +280,7 @@ python에서 모든 자료는 객체입니다. c나 java같은 경우 int나 cha
 
 변경 불가능 하다는것은 실행단계에서 **자료가 변할 수 없다**는 것을 의미합니다.
 
-예를들어 python에서 integer는 immutable합니다. 우리가 일반적으로 a=1 이라고 선언하는 것이 a에 1이라는 값을 넣는게 아닌 **1이라는 값을 가진 integer 객체**가 들어가는 것입니다.
+immutable에 속하는 set이나 string 객체가 새로운 객체를 가리킬 수는 있지만, 그 내부의 값을 변경할 수 없습니다.
 
 <br>
 
@@ -187,6 +363,7 @@ print(b)
 - `( )` 안에 자료를 표현
   - 소괄호 안쓰고 s =  1, 2, 3, 4, 5 로도 할당 가능
 - x, y = 1, 2 또한 튜플
+- 변수에 매칭시켜서 데이터에 접근이 가능하다.
 
 > 선언 방법
 
