@@ -372,3 +372,35 @@ TypeError: 'str' object does not support item assignment
 ```
 
 <br>
+
+<br>
+
+#### String 조작방법
+
+Concatenation : "+". 이어 붙이기
+
+```python
+str1 = "happy" + "hacking"
+```
+
+<br>
+
+Interpolation : 변수를 string 안에 삽입(수술)
+
+```python
+name = "goodman"
+local = "local"
+print(f"hello {name}, this {local}") 
+```
+
+<br>
+
+slicing : 글자 자르기
+
+```python
+greeting = "hello john"
+str1 = greeting[0:5]
+print(str1)
+>> "hello"
+```
+
