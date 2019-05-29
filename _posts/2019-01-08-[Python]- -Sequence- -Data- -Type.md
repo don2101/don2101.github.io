@@ -404,195 +404,196 @@ print(str4.isdigit())
 >> True
 ```
 
+<br>
 
+<br>
 
+<br>
 
+## II. 객체 복사
 
+python에서 객체를 복사함에 있어 레퍼런스 복사와 값 복사로 나뉜다.
 
+<br>
 
+#### immutable 객체 복사
 
+**값 자체**를 복사, 복제(string, integer...)
 
-
-
-
-
-
-
-
-
-
-
-
-
-**len(`tuple`):** 길이 구해서 반환
+`=`복사를 한다고 해도 값 자체가 복사되기 때문에 각 변수에서 조작 가능
 
 ```python
-print(len(t1))
->> 6
+num1 = 9
+num2 = num1
+num2 += 1
+
+print(num1, num2)
+>> (9, 10)
 ```
 
 <br>
 
-**sum(`tuple`):** 모든 요소 더해서 반환
+#### mutable 객체 복사
+
+**레퍼런스**를 복사. 
+
+`=`으로 복사할 경우 레퍼런스가 복제되기 때문에 두 변수가 접근해서 조작할 경우 **서로에게 영향**(레퍼런스 참조)
 
 ```python
-print(sum(t1))
->> 18
+list1 = [1, 2, 3]
+list2 = list1
+list1.append(4)
+# list1에 값을 추가했지만, list2 또한 값이 추가됨
+print(list2)
+>> [1, 2, 3, 4]
 ```
 
 <br>
 
-**reversed(`tuple`):** 모든 요소를 거꾸로하여 반환
+#### 객체 비교
+
+**is** : **레퍼런스값** 비교. 실제 동일한 객체?
+
+<br>
+
+#### 얕은 복사
+
+**list1 = list2[:]** : slicing을 하여 값 자체를 복사 
+
+**.copy()** : 객체의 값을 복사하여 반환
+
+**b = list(a)** : list operator를 사용해서 복제
+
+<br>
+
+#### 깊은 복사
+
+얕은 복사는 리스트 안의 리스트 등 **객체 안의 객체의 값은 복사하지 않는다**.
+
+객체 안의 객체는 레퍼런스만 가져오며, 한 깊이만을 복사
+
+import copy의 deepcopy로 객체 내 모든 객체에 대해 복사 가능
+
+<br>
+
+<br>
+
+<br>
+
+## III. 공통 조작
+
+**iterable객체**(순회 가능한 객체, dictionary, list, set)에 대해 공통적으로 조작이 가능한 메서드
+
+<br>
+
+#### 공통 메서드
+
+**`iterable`.sort()** : 정렬. 원본 리스트를 변형하고, **None을 반환**
+
+**sorted(`iterable`):** 객체를 오름차순으로 정렬하여 list로 반환, True 옵션 추가시 내림차순 정렬
 
 ```python
-print(t1)
->> (1, 2, 3, 3, 4, 5)
+print(sorted(list1))
+>> [1, 2, 3, [1, 2, 3], 'a', 'b']
 
-t3 = reversed(t1)
-print(tuple(t3))
->> (5, 4, 3, 3, 2, 1)
+# reverse=True 옵션 추가시 내림차순 정렬
+print(sorted(list1), reverse=True)
+>> ['b', 'a', [1, 2, 3], 3, 2, 1]
+```
+
+- 기존 객체는 보존
+- 원본 객체를 변형하지 않는 sorted가 더욱 선호됨
+
+<br>
+
+**`iterable`.reverse()** : 객체를 반대로 뒤집는다. 원본 객체 훼손.
+
+**reversed(`iterable`):** 모든 요소를 거꾸로하여 반환
+
+```python
+print(list1)
+>> ['a', 'b', 1, 2, 3, [1, 2, 3]]
+
+print(list(reversed(list1)))
+>> [[1, 2, 3], 3, 2, 1, 'b', 'a']
 ```
 
 - **reversed 객체**가 반환되므로 list나 tuple로 바꿔서 출력할 수 있다. 
 - **기존 객체는 보존**된다.
 
-<br>
-
-**sorted(`tuple`):** tuple을 오름차순으로 정렬하여 list로 반환
+> palindrome 확인 방법
 
 ```python
-print(sorted(t1))
->> [1, 2, 3, 3, 4, 5]
-
-# reverse=True 옵션 추가시 내림차순 정렬
-print(sorted(t1), reverse=True)
->> [5, 4, 3, 3, 2, 1]
+if(reversed == str)
 ```
 
-- 기존 객체는 보존
+<br>
 
+**len(`iterable`):** 길이 구해서 반환
 
+```python
+print(len(list1))
+>> 6
+```
 
+<br>
 
+**sum(`iterable`):** 모든 요소 더해서 반환
 
+```python
+print(sum(list2))
+>> 15
+```
 
+- list의 모든 객체가 숫자일 경우 가능
 
+<br>
 
+**min(`iterable`)** : 최솟값, **max(`iterable`)** : 최댓값
 
+**`iterable`.count(`x`)** : `iterable`내 `x`의 갯수
 
+<br>
 
-
-
-
+<br>
 
 #### 공통 조작
 
-- **.sort()** : 정렬. 원본 리스트를 변형하고, **None을 반환**
-- **sorted(리스트)** : 원본 리스트를 **변형하지 않고**, 정렬된 리스트를 **반환**
-  - 보통 원본을 훼손하지 않는 방법이 선호됨
-- **.reverse()** : 리스트를 반대로 뒤집고, **None을 반환**
-- **reversed(**) : **원본 훼손하지 않음**. reversed object. 리스트가 아님
-
-
-
-**list(`iterable`):** iterable 객체를 tuple로 변환
-
-<br>
-
-**len(`list`):** 길이 구해서 반환
+**map(`function`, `iterable`)**: `object` 의 모든 요소에 `function` 을 적용하여 반환
 
 ```python
-print(len(list1))
->> 6
+def addTwo(number) :
+    return number+2
+
+numList = [1, 2, 3, 4, 5]
+result = map(addTwo, numList)
+```
+
+> input()에서 숫자들을 받기
+
+```python
+# 공백으로 구분된 입력을 숫자 리스트로 반환
+map(int, input().split())
 ```
 
 <br>
 
-**sum(`list`):** 모든 요소 더해서 반환
+**zip(`iterable`)** : 동일한 개수로 이루어진 자료형을 묶어 tuple로 반환
 
 ```python
-print(sum(list2))
->> 15
-```
-
-- list의 모든 객체가 숫자일 경우 가능
-
-<br>
-
-**reversed(`list`):** 모든 요소를 거꾸로하여 반환
-
-```python
-print(list1)
->> ['a', 'b', 1, 2, 3, [1, 2, 3]]
-
-print(list(reversed(list1)))
->> [[1, 2, 3], 3, 2, 1, 'b', 'a']
-```
-
-- **reversed 객체**가 반환되므로 list나 tuple로 바꿔서 출력할 수 있다. 
-- **기존 객체는 보존**된다.
-
-<br>
-
-**sorted(`list`):** tuple을 오름차순으로 정렬하여 list로 반환
-
-```python
-print(sorted(list1))
->> [1, 2, 3, [1, 2, 3], 'a', 'b']
-
-# reverse=True 옵션 추가시 내림차순 정렬
-print(sorted(list1), reverse=True)
->> ['b', 'a', [1, 2, 3], 3, 2, 1]
-```
-
-- 기존 객체는 보존
-
-
-
-len(`list`):** 길이 구해서 반환
-
-```python
-print(len(list1))
->> 6
+>>> list(zip([1, 2, 3], [4, 5, 6]))
+[(1, 4), (2, 5), (3, 6)]
+>>> list(zip([1, 2, 3], [4, 5, 6], [7, 8, 9]))
+[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+>>> list(zip("abc", "def"))
+[('a', 'd'), ('b', 'e'), ('c', 'f')]
 ```
 
 <br>
 
-**sum(`list`):** 모든 요소 더해서 반환
+**filter(`function`, `object`)** : `object`에서 **`function` 결과가 참 인것만** 구성하여 반환
 
 ```python
-print(sum(list2))
->> 15
+a = [1, 2, 3]
+list(filter(even, a))
 ```
-
-- list의 모든 객체가 숫자일 경우 가능
-
-<br>
-
-**reversed(`list`):** 모든 요소를 거꾸로하여 반환
-
-```python
-print(list1)
->> ['a', 'b', 1, 2, 3, [1, 2, 3]]
-
-print(list(reversed(list1)))
->> [[1, 2, 3], 3, 2, 1, 'b', 'a']
-```
-
-- **reversed 객체**가 반환되므로 list나 tuple로 바꿔서 출력할 수 있다. 
-- **기존 객체는 보존**된다.
-
-<br>
-
-**sorted(`list`):** tuple을 오름차순으로 정렬하여 list로 반환
-
-```python
-print(sorted(list1))
->> [1, 2, 3, [1, 2, 3], 'a', 'b']
-
-# reverse=True 옵션 추가시 내림차순 정렬
-print(sorted(list1), reverse=True)
->> ['b', 'a', [1, 2, 3], 3, 2, 1]
-```
-
-- 기존 객체는 보존
