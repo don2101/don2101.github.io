@@ -26,15 +26,15 @@ html과 python 코드를 연결
 
 ### (1) 기본 문법
 
-**{% %}** : python 코드를 담을 수 있는 문법
+**\{% %}** : python 코드를 담을 수 있는 문법
 
-**{{ somethn }}** : python 변수와 연결
+**\{{ somethn }}** : python 변수와 연결
 
-**{% for x in list %} {% endfor %}** : for 문
+**\{% for x in list %} \{% endfor %}** : for 문
 
-**{% if smtn is right %} {% endif %}** : if 문
+**\{% if smtn is right %} \{% endif %}** : if 문
 
-**{# #}** : comment
+**\{# #}** : comment
 
 <br>
 
