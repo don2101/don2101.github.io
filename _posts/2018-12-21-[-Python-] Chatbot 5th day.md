@@ -1,6 +1,6 @@
 ---
 title : "Chatbot Project 5th"
-tags: ["Chatbot", "GET/POST", "Webhook"]
+tags: ["Chatbot", "Request", "Webhook"]
 ---
 
 # Python Chatbot 5 일차

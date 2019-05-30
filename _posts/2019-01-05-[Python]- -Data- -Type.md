@@ -1,6 +1,6 @@
 ---
 title : "Python Data Type"
-tags: ["Python", "mutable/immutable"]
+tags: ["Python", "Mutable/Immutable"]
 ---
 
 # 자료형
