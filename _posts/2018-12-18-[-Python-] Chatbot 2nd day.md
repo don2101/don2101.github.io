@@ -1,3 +1,8 @@
+---
+title : "Chatbot Project 2nd"
+tags: ["Chatbot", "Scrap"]
+---
+
 # Python Chatbot 2 일차
 
 #### 2018. 12. 18(Tue)

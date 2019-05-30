@@ -1,3 +1,8 @@
+---
+title : "Sequence Data Type"
+tags: ["Python"]
+---
+
 # Sequence Data Type
 
 python에서 기본적으로 제공하는, 데이터를 연속적으로 저장하는 자료형

@@ -1,3 +1,8 @@
+---
+title : "Python Data Type"
+tags: ["Python", "mutable/immutable"]
+---
+
 # 자료형
 
 python에서 기본적으로 제공하는, 자료를 저장하기 위한 객체

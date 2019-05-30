@@ -1,3 +1,8 @@
+---
+title : "Python Function"
+tags: ["Python"]
+---
+
 # Python Function
 
 - 코드가 많아질수록 문제 발생 확률이 높아지며, 유지보수도 힘들어진다.

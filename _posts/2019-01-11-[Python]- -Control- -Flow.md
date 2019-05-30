@@ -1,3 +1,8 @@
+---
+title : "Python Control Flow"
+tags: ["Python"]
+---
+
 # Python 제어 흐름
 
 python의 조건에 따른 제어 흐름

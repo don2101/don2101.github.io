@@ -1,3 +1,8 @@
+---
+title : "Python basic"
+tags: ["Python"]
+---
+
 # Python basic
 
 python 기초 개념 및 문법
