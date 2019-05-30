@@ -226,7 +226,7 @@ hr.small {
 }
 .post-preview > a > .post-title {
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 .post-preview > a > .post-subtitle {
@@ -357,7 +357,7 @@ form .row:first-child .floating-label-form-group {
 .pager li > span {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 1px;
   padding: 10px 5px;
@@ -367,8 +367,8 @@ form .row:first-child .floating-label-form-group {
 @media only screen and (min-width: 768px) {
   .pager li > a,
   .pager li > span {
-    font-size: 14px;
-    padding: 15px 25px;
+    font-size: 13px;
+    padding: 10px 15px;
   }
 }
 .pager li > a:hover,
