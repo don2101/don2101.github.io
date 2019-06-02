@@ -83,7 +83,7 @@ utf-32 : unix, min:32bit, max:32bit
 
 <br>
 
-<r>
+<br>
 
 ### 2. 정수형 to 문자열
 
