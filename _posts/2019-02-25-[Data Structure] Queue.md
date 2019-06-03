@@ -1,6 +1,6 @@
 ---
 title: Queue
-tags: ["Queue", "Priority Queue"]
+tags: ["Queue", "Priority Queue", "Data Structure"]
 ---
 
 

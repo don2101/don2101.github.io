@@ -1,6 +1,6 @@
 ---
 title: "Working Order"
-tags: ["Topological Sort"]
+tags: ["Topological Sort", "Algorithm"]
 ---
 
 

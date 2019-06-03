@@ -1,6 +1,6 @@
 ---
 title: String
-tags: ["Data Structure", "Pattern Matching"]
+tags: ["Algorithm", "Pattern Matching"]
 ---
 
 

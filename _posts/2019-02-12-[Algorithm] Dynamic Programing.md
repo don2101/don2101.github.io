@@ -1,6 +1,6 @@
 ---
 Title: Dynamic Programming
-tags: ["DP"]
+tags: ["Algorithm", "DP"]
 ---
 
 
