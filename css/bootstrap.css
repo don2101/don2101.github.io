@@ -1080,27 +1080,27 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 2rem;
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: 1.8rem;
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 1.6rem;
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 1.4rem;
 }
 h5,
 .h5 {
-  font-size: 14px;
+  font-size: 1.2rem;
 }
 h6,
 .h6 {
-  font-size: 12px;
+  font-size: 1.0rem;
 }
 p {
   margin: 0 0 10px;
