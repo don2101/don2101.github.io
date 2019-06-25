@@ -47,7 +47,7 @@ tags: ["Jenkins", "CI/CD"]
 
 ### github와 연동
 
-![jenkins](C:\Users\multicampus\dev\don2101.github.io\img\diagrams\jenkins.png)
+![jenkins](../img/diagrams/)
 
 <br>
 
