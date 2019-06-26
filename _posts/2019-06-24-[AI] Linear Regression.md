@@ -38,9 +38,13 @@ $$
 #### non-linear-fitting
 
 x대신 non-linear function 추가
+
+
 $$
 y = w^t*pi(x) + e~~(pi(x) :non-linear funtion,~w^t: coeffcient~array)
 $$
+
+
 **polynomial regression**: degree(차수)가 높은 regression 모델. 차수를 높이면 적합한 line을 찾을 수 있지만, 복잡도가 너무 높으면 overfit 될 수 있다.
 
 <br>
