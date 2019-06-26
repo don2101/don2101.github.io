@@ -85,7 +85,7 @@ $Fi,j$: feature 정보
 
 #### text가 data 일 때
 
-$P(Y) = P('free' | spam)$?
+$P(Y) = P('free'|spam)$?
 
 단어의 frequency와 어떤 문맥에 속한 단어인지가 중요
 
