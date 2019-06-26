@@ -1,17 +1,24 @@
-# AI and ML
+---
+title: "AI & Numpy"
+tags: ["Analysis", "Numpy", "AI"]
+---
+
+
+
+# AI & Numpy
 
 ##### 2019. 6. 24 (Mon)
 
-
+<br>
 
 ## Machine Learning(기계 학습)
 
 <hr>
+
 머신러닝: 인공 지능의 한 분야. 컴퓨터가 학습할 수 있도록 하는 알고리즘과 기술을 개발하는 분야
 
 
-
-### ML과 각 키워드 비교
+### 1. ML과 각 키워드 비교
 
 #### 1. ML vs Big data?
 
@@ -19,7 +26,7 @@ ML: big data를 해석하는 방법중 하나
 
 Big data: 그냥 데이터가 많음을 의미
 
-
+<br>
 
 #### 2. ML vs Data mining?
 
@@ -27,7 +34,7 @@ Data mining: 정형화된 데이터를 중심으로 분석하고 이해하고 �
 
 ML: 비정형 데이터를 분석하는데 사용
 
-
+<br>
 
 #### 3. ML vs AI?
 
@@ -35,17 +42,17 @@ AI: 인간의 지능을 컴퓨터가 갖게 하는 기술
 
 ML: AI기술중 데이터에 의존하는 방법
 
-
+<br>
 
 #### 4. ML vs Statistic?
 
 ML은 통계학이 만들어 놓은 분석 방법을 데이터에 적용하여 통계학 분석의 한계를 극복.
 
+<br>
 
+<br>
 
-
-
-### ML 기법 종류
+### 2. ML 기법 종류
 
 #### 1. Supervised Learning(지도 학습)
 
@@ -61,7 +68,7 @@ Supervised learning: 정답을 주고 학습시키는 머신러닝의 방법론.
 
 **선형 회귀 (Linear Regression):** 종속 변수 y와 한개 이상의 독립 변수 x와의 선형 상관 관계를 모델링하는 회귀분석 기법
 
-
+<br>
 
 #### 2. Unsupervised Learning
 
@@ -73,7 +80,7 @@ Supervised learning: 정답을 주고 학습시키는 머신러닝의 방법론.
 
 데이터의 형태에 따라 몇 그룹으로 나누는지, 어떻게 나누는지를 결정
 
-
+<br>
 
 #### 3. Representation Learning(deep learning)
 
@@ -83,13 +90,15 @@ Neural Network: `reducing the dimensionality of data with neural network`
 
 현실에서 발생하는 문제를 종합적으로 해결하는 방식
 
+<br>
 
+<br>
 
-
-
-
+<br>
 
 ## Numpy 관련 연산
+
+<hr>
 
 <br>
 
@@ -99,7 +108,7 @@ python에서 고성능 수치 계산 라이브러리
 
 배열을 numpy 행렬로 변환시 ndarray객체로 변환
 
-
+<br>
 
 ### 1. 배열 생성관련 함수
 
@@ -121,7 +130,7 @@ python에서 고성능 수치 계산 라이브러리
 
 **ndarray[:, m]:** m 열을 추출.
 
-
+<br>
 
 ### 2. 배열의 통계적 정보를 나타내는 함수
 
@@ -137,13 +146,13 @@ python에서 고성능 수치 계산 라이브러리
 
 **np.std(x):** 배열 x 의 표준편차
 
-
+<br>
 
 #### 표준화
 
 A = (A - np.mean(A))/np.std(A)
 
-
+<br>
 
 ##### 사용 예시
 
@@ -160,9 +169,9 @@ def matrix_nom_var():
     return np.var(A)
 ```
 
+<br>
 
-
-
+<br>
 
 #### 3. 행렬의 연산과 관련된 함수
 
@@ -174,9 +183,11 @@ def matrix_nom_var():
 
 **np.linalg.inv(x)**: 행렬 x의 역행렬을 배열로 나타낸다.
 
+<br>
 
+<br>
 
-
+<br>
 
 ## Pandas
 
@@ -188,7 +199,7 @@ csv, xls 등의 파일의 데이터를 원하는 형식의 데이터로 변환
 
 정수형 인덱스에 명시적인 인덱스를 추가 가능
 
-
+<br>
 
 ### 1. Series
 
@@ -196,7 +207,7 @@ csv, xls 등의 파일의 데이터를 원하는 형식의 데이터로 변환
 
 변수를 출력하면, 인덱스 번호와 이름, 자료형도 함께 출력
 
-
+<br>
 
 **.Series(data, name)**: data를 name 이라는 이름의 `Series`형dmfh 변환
 
@@ -215,9 +226,9 @@ class_name = {'국어' : 90,'영어' : 70,'수학' : 100,'과학' : 80}
     class_name = pd.Series(class_name)
 ```
 
+<br>
 
-
-
+<br>
 
 ### 2. DataFrame
 
@@ -225,7 +236,7 @@ class_name = {'국어' : 90,'영어' : 70,'수학' : 100,'과학' : 80}
 
 `DataFram`e을 정의할 때는 2차원 리스트를 매개 변수로 전달하며, 여러개의 `Series` 데이터를 합쳐 `DataFrame`을 만들 수도 있다
 
-
+<br>
 
 **DataFrame(data)**: data를 `DataFrame` 구조로 변환
 
@@ -234,9 +245,9 @@ data=[['name', 'age'],['철수',15],['영희',23],['민수',20],['다희', 18],[
     data = pd.Series(data)
 ```
 
+<br>
 
-
-
+<br>
 
 ### 3. Pandas 데이터 조작
 
@@ -246,7 +257,7 @@ data=[['name', 'age'],['철수',15],['영희',23],['민수',20],['다희', 18],[
 
 **iloc()**: 정수 인덱스 인덱싱/슬라이싱. 마지막 인덱스는 제외
 
-
+<br>
 
 #### 데이터 삭제
 

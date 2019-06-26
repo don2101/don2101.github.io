@@ -1,8 +1,15 @@
+---
+title: "Naive Bayes Classifier"
+tags: ["Naive Bayes Classifier", "Scikit-learn"]
+---
+
+
+
 # Naive Bayes Classifier
 
 ##### 2019. 06. 24 (Mon)
 
-
+<br>
 
 확률 및 통계를 기반하는 베이즈 정리를 적용한 알고리즘
 
@@ -12,7 +19,7 @@
 
 - 그러나 실제로 항상 그렇지는 않다
 
-
+<br>
 
 #### Naive Bayes를 사용하는 이유?
 
@@ -22,7 +29,7 @@
 
 그러나 성능은 그렇게 좋지 않다.
 
-
+<br>
 
 #### Feature
 
@@ -36,15 +43,19 @@ data에 대한 detail
 
 데이터 분석을 위해 data에서 feature를 추출하고 수치화 해야 한다.
 
+<br>
 
+<br>
 
-
+<br>
 
 ## Naive Bayes Model
 
+<hr>
+
 추출한 feature를 토대로 분류를 진행하는 모델
 
-
+<br>
 
 ### 1. Naive Bayes Model
 
@@ -54,7 +65,7 @@ Prior가 uniform distribution이 아닐 경우도 있다.
 
 $Fi,j$: feature 정보
 
-
+<br>
 
 ##### Conditional Probability Table
 
@@ -64,13 +75,13 @@ $Fi,j$: feature 정보
 
 ![]()
 
-
+<br>
 
 결국 naive bayes를 학습한다는 것은 CPT를 알아내는것
 
 답은 training data에서 empirically 학습하여 추출한다
 
-
+<br>
 
 #### text가 data 일 때
 
@@ -78,7 +89,7 @@ $P(Y) = P('free' | spam)$?
 
 단어의 frequency와 어떤 문맥에 속한 단어인지가 중요
 
-
+<br>
 
 #### Bag-of-Words
 
@@ -86,9 +97,9 @@ $P(Y) = P('free' | spam)$?
 
 단순하기 때문에 사용
 
+<br>
 
-
-
+<br>
 
 ### 2. Smoothing
 
@@ -98,11 +109,11 @@ data가 abnormal하여 이상한 확률이 등장하여 overfitting 발생하는
 
 한번도 안나온 확률에 대해 0이되는 것을 방지
 
-$ number+k/(number~of~sample+k)$: 분모, 분자에 k를 추가하여 확률이 0이 되는 것을 방지한다.
+$ number+k/(number~of~sample+k)$: 분모, 분자에 k를 추가하여 확률이 0이 되는 것을 방지한다.
 
 어떻게 k를 찾아낼 것인가? 또한 중요한 문제
 
-
+<br>
 
 ##### held-out data(validation)
 
@@ -116,15 +127,15 @@ test데이터와 유사한 값이 나와야 한다.
 - 100 validation
 - 100 test
 
+<br>
 
-
-
+<br>
 
 ### 3. Error가 발생하는 경우에는?
 
 더 많은 feature가 필요
 
-
+<br>
 
 #### spam메일 분류가 안된다?
 
@@ -133,9 +144,9 @@ test데이터와 유사한 값이 나와야 한다.
 - sender가 누구인가?
 - spam 메일의 또 다른 특징 적용
 
+<br>
 
-
-
+<br>
 
 ### 4. Feature
 
@@ -145,15 +156,15 @@ Naive Bayes에서는 feature를 임의의 숫자로 한정한다
 
 feature 파악을 위해 해당 도메인 지식 또한 필요
 
+<br>
 
-
-
+<br>
 
 ### 5. Scikit-learn
 
 머신러닝을 위한 다양한 라이브러리를 내장한 모듈
 
-
+<br>
 
 ##### scikit-learn을 활용한 뉴스 데이터 분류
 
@@ -192,7 +203,7 @@ predicted = mod.predict(X_test_tdm)
 print("Test 데이터 정확도 : ", accuracy_score(newsdata_test.target, predicted)) #예측값과 실제값 비교
 ```
 
-
+<br>
 
 ##### Bayes Probability 예시
 

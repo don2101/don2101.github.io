@@ -1,10 +1,19 @@
+---
+title: "Linear Regression"
+tags: ["Linear Regression", "Scikit-learn"]
+---
+
+
+
 # Linear Regression
 
 ##### 2019. 06. 24 (Mon)
 
-
+<br>
 
 ## Regression problem
+
+<hr>
 
 종속 변수 yrhk 한 개 이상의 독립 변수 x와의 **선형 상관 관계**를 모델링하는 회귀분석 기법
 
@@ -12,7 +21,7 @@
 
 line-fitting을 수행하여 값을 찾아내는 작업
 
-
+<br>
 
 #### Line-fitting
 
@@ -24,7 +33,7 @@ xy(x) = w^t*x + e
 $$
 의 형태에서 w와 e의 값을 찾는다.
 
-
+<br>
 
 #### non-linear-fitting
 
@@ -34,7 +43,7 @@ y = w^t*pi(x) + e~~(pi(x) :non-linear funtion,~w^t: coeffcient~array)
 $$
 **polynomial regression**: degree(차수)가 높은 regression 모델. 차수를 높이면 적합한 line을 찾을 수 있지만, 복잡도가 너무 높으면 overfit 될 수 있다.
 
-
+<br>
 
 #### Multivariate linear regression
 
@@ -42,7 +51,7 @@ $$
 
 3차 이상의 차원에서 line-fitting
 
-
+<br>
 
 ### 적합한 w?
 
@@ -52,13 +61,11 @@ $$
 sum(y_i - w^t*x_i)^2~~(i = 1~to~n)
 $$
 
-
-
 fitting한 line과 실제 데이터들의 차의 크기
 
 실제 데이터와 예측값 사이의 오차를 의미하며, 이 차이를 줄이는 weight를 찾는다.
 
-
+<br>
 
 ##### linear-fitting & RSS 예시
 
@@ -103,13 +110,13 @@ plt.savefig("test.png") # 저장 후 엘리스에 이미지를 표시합니다.
 eu.send_image("test.png")
 ```
 
-
+<br>
 
 #### Sciket-learn
 
 numpy내 기능으로, 자동으로 가장 적합한 line을 찾아주는 기능
 
-
+<br>
 
 ##### Scikit-learn을 이용한 linear regression
 
@@ -128,7 +135,7 @@ print("beta_0: %f" % beta_0)
 print("beta_1: %f" % beta_1)
 ```
 
-
+<br>
 
 #### Ridge Regression
 
@@ -138,7 +145,7 @@ linear-fitting을 할 때 over-fitting하지 않도록 주의한다.
 
 즉, 너무 complex한 모델(over-dimensioned curve, over-estimated weight)을 사용하면 오히려, fitting이 잘 안되는 경우가 있다.
 
-
+<br>
 
 #### (l2)Regularization
 
@@ -150,7 +157,7 @@ polynomial non-linear-fitting에 대해 미리 찾아놓은 **좋은 w값**을 �
 
 그러니까 큰 w값에 penalty를 부여하여 over-fitting을 방지한다.
 
-
+<br>
 
 ##### error를 사용하여 실제 선형 회귀 구현
 
@@ -213,21 +220,5 @@ def main():
     plotting_graph(x,y,a,b)
     
 main()
-```
-
-
-
-
-
-
-
-
-
-
-
-### 선형 회귀 구현 예시
-
-```python
-
 ```
 

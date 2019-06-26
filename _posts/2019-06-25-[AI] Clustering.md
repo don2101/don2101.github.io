@@ -1,3 +1,10 @@
+---
+title: "Clustering"
+tags: ["Clustering", "Big data"]
+---
+
+
+
 # Clustering
 
 ##### 2019. 06. 25 (Tue)
@@ -14,7 +21,7 @@
 
 데이터들을 패턴에 따라 분류하고 그룹짓는 과정
 
-
+<br>
 
 #### 왜 clustering을 하는가?
 
@@ -24,7 +31,7 @@
 
 또한, 추천시스템에도 사용 가능
 
-
+<br>
 
 #### clustering에 걸리는 시간
 
@@ -32,11 +39,15 @@ n개의 데이터를 k개의 group으로 분리한다면, k^n개만큼의 부분
 
 따라서, 일일이 다 알아보는 것은 시간이 오래 걸리며, 좋은 분류 모델을 사용해야 한다.
 
+<br>
 
+<br>
 
-
+<br>
 
 ## Clustering 모델
+
+<hr>
 
 ### 1. k-means clustering
 
@@ -46,7 +57,7 @@ n개의 데이터를 k개의 group으로 분리한다면, k^n개만큼의 부분
 3. 각 데이터와 가장 가까운 cluster center로 assign
 4. 2.~ 3. 반복
 
-
+<br>
 
 #### 문제??
 
@@ -60,7 +71,7 @@ density가 낮으면 적용이 어렵다
 
 outliers problem
 
-
+<br>
 
 ##### K-means clustering python 예시
 
@@ -96,15 +107,15 @@ pit.scatter(x[:, 0], x[:, 1], c=y_pred, s=4, cmap=cmap)
 pit.show()
 ```
 
+<br>
 
-
-
+<br>
 
 ### 2. Hierarchical Clustering
 
 각 점들간 거리로 group을 정하는 모델
 
-
+<br>
 
 #### 점들간 거리를 구하는 방법
 
@@ -117,7 +128,7 @@ pit.show()
 1. 연결 안된 점을 탐색
 2. 가장 최소거리가 작은 cluster를 group 으로 선택
 
-
+<br>
 
 **complete-link**
 
@@ -125,13 +136,13 @@ pit.show()
 
 이 거리보다 짧으면 하나의 cluster이다
 
-
+<br>
 
 **average-link**: 각 데이터간 거리중 평균 구현
 
 **central-link**: 중간값 비교
 
-
+<br>
 
 ##### Hierarchical Clustering python 예시
 
@@ -160,9 +171,9 @@ for j in range(2, 5):
 
 ```
 
+<br>
 
-
-
+<br>
 
 ### 3. DBScan Clustering
 
@@ -170,7 +181,7 @@ density-base clustering 방법중 하나
 
 density-connected points를 모아 group으로 구성
 
-
+<br>
 
 **장점**
 
@@ -178,15 +189,15 @@ density-connected points를 모아 group으로 구성
 - 한번에 계산 가능
 - density를 정해 분류
 
+<br>
 
-
-
+<br>
 
 ### 4. EM Clustering
 
 가우시안 분포를 통해 group을 정하는 방법
 
-
+<br>
 
 ##### python 구현 예시
 
@@ -207,9 +218,9 @@ pit.scatter(x[:, 0], x[:, 1], cmap=cmap, s=8, c=y_pred)
 pit.show()
 ```
 
+<br>
 
-
-
+<br>
 
 ### 5. clustering을 도와주는 도구
 
@@ -221,7 +232,7 @@ data mining 분석을 위한 tool
 
 cvs, arff등의 확장자지원
 
-
+<br>
 
 #### arff 파일
 
@@ -231,9 +242,9 @@ annotation으로 attribute, title등을 설정
 
 csv파일과 annotation의 차이만 있다
 
+<br>
 
-
-
+<br>
 
 ### 6. PLSI
 
