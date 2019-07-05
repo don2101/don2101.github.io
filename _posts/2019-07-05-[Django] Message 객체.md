@@ -1,5 +1,5 @@
 ---
-title: "[Message Framework]"
+title: "Message Framework"
 tags: ["Django", "messages"]
 ---
 
