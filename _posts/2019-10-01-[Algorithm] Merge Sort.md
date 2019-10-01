@@ -49,35 +49,44 @@ tags: ["Algorithm", "Merge Sort"]
 
 ```c++
 // merge sort 실행
+
 void mergeSort(int *array, int length) {
     divide(array, 0, length-1);
 }
 
 // 배열을 나누는 부분
+
 void divide(int *array, int start, int end) {
     // case) start보다 end가 같거나 작으면 나눌 필요가 없다
+  
     if(end <= start) return;
 
     // 1. 일단 두 부분으로 계속 나눈다.
+
     int mid = (start + end) / 2;
 		
   	// 2. 재귀적으로 계속 나눠간다.
+
     divide(array, start, mid);
     divide(array, mid+1, end);
   
   	// 3. 나눈 두 배열을 병합
+  
     merge(array, start, mid, end);
 }
 
 // 병합 부분
+
 void merge(int *array, int start, int mid, int end) {
     // 1. i = 왼쪽 부분 시작, j = 오른쪽 부분 시작
+  
     int i = start;
     int j = mid+1;
     int length = end-start+1;
     int *tempArray = new int[length];
 
     // 2. 정렬 부분, i에 있는 수와 j에 있는 수를 비교하며 tempArray에 저장
+  
     for(int k = 0; k < length; ++k) {
         if (i > mid) tempArray[k] = array[j++];
         else if (j > end) tempArray[k] = array[i++];
@@ -86,6 +95,7 @@ void merge(int *array, int start, int mid, int end) {
     }
 
     // 3. tempArray에 저장된 값을 다시 array로 옮김
+  
     for(int p = start; p <= end; ++p) {
         array[p] = tempArray[p-start];
     }
