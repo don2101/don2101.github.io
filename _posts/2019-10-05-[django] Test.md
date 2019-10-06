@@ -7,15 +7,17 @@ tags: ["Django", "Python", "Test"]
 
 ## Django에서 Test 수행
 
+<hr>
+
 python에서 `unittest`라이브러리를 제공하며, 이를 사용하여 단위 테스트를 진행할 수 있다.
 
 [파이선 단위 테스트](https://don2101.github.io/2019/06/10/Python-Unit-Test/)
 
-
+<br>
 
 django에서는 `django.test` 라이브러리를 통해 단위 테스트를 수행할 수 있다.
 
-
+<br>
 
 ### 1. 테스트 클래스 생성
 
@@ -55,7 +57,7 @@ class PostTest(TestCase):
 - `unittest` 와 유사하게 setUp을 구성하고 test를 진행
 - post를 올리고 status code가 201이면 test 성공
 
-
+<br>
 
 ### 2. test 수행
 
@@ -67,15 +69,11 @@ python3 manage.py test
 
 - 프로젝트 내에 존재하는 모든 `test.py`를 수행
 
-
+<br>
 
 > post 결과
 
 ![](https://user-images.githubusercontent.com/19590371/66265346-ea271100-e84f-11e9-8c75-60d1d031b447.png)
-
-
-
-
 
 
 
