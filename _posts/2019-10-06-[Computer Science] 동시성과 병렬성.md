@@ -5,8 +5,6 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 
 
 
-
-
 ## 동시성 과 병렬성
 
 <hr>
@@ -16,7 +14,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 - 작업이나 연산을 처리하는 기계, 프로세서
 - CPU 하나에 하나의 작업만 수행할 수 있다
 
-
+</br>
 
 ### 1. 동시성(Concurrency)
 
@@ -26,14 +24,14 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 - 스케쥴링을 통해 작업을 나눠서 처리
 - 하나의 CPU의 성능을 높여 연산량을 증가시킬 수 있다
 
-
+</br>
 
 #### 고민...
 
 - 작업을 어떻게 분배하는가?
 - **스레드**의 탄생
 
-
+</br>
 
 ### 2. 병렬성(Parallelism)
 
@@ -41,37 +39,37 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 - 작업을 효율적으로 분배해야 효율성이 발휘된다
 - 효율적으로 분배하지 않을 경우 오히려 작업 효율성이 떨어질 수 있다
 
-
+</br>
 
 #### 작업 병렬성
 
 - 작업을 병렬화 해서 진행
 - CPU에서 각각 다른 작업을 수행
 
-
+</br>
 
 #### 데이터 병렬성
 
 - 동시에 같은 작업을 수행하지만, 작업을 처리하는 데이터가 다르다
 
-
+</br>
 
 #### 고민...
 
 - 병렬성은 하드웨어(멀티코어 갯수)에 의존적이다
 - 작업을 분배하거나, 결과를 가져오는 방법에 대한 설계 또한 중요
 
+</br>
 
-
-
+</br>
 
 ## Process와 Thread
 
 <hr>
 
-동시성을 위해 고안된 개념ㅌ
+동시성을 위해 고안된 개념
 
-
+</br>
 
 ### 1. Process
 
@@ -79,7 +77,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 - 운영체제로 부터 자원을 할당받아 프로그램을 실행하는 작업의 최소단위
 - 유저레벨 프로세스와 커널(kernel)레벨 프로세스로 분리
 
-
+</br>
 
 #### 특징
 
@@ -89,7 +87,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 - 프로세스 서로가 독립적인 메모리와 주소 공간을 할당받기 때문에 **자원의 무결성**과 **동기화**에 대한 고민이 필요없다
   - 다만 shared memory같이 메모리를 공유하는 경우에는 필요
 
-
+</br>
 
 ### 2. Thread
 
@@ -99,7 +97,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
   - 프로세스를 생성하는데 비용이 든다
     - 작업 할당, IPC 구현, 정보 전달...
 
-
+</br>
 
 #### 특징
 
@@ -107,9 +105,9 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
   - IPC 같은 통신채널 불필요
   - 그러나, **자원의 무결성**과 **동기화에 대해 처리**해야 한다
 
+</br>
 
-
-
+</br>
 
 ### 정리
 
@@ -119,7 +117,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 
 스레는 프로세스의 한 부분
 
-
+</br>
 
 ##### 2.
 
@@ -127,7 +125,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 
 스레드는 프로세스의 상태, 메모리, 자원을 공유
 
-
+</br>
 
 ##### 3.
 
@@ -135,7 +133,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 
 스드는 프로세스 안에서 주소 공간 공유
 
-
+</br>
 
 ##### 4.
 
@@ -143,7 +141,7 @@ tags: ["Computer science", "Concurrency", "Parallelism"]
 
 스레드는 프로세스 안에서 자원을 공유
 
-
+</br>
 
 ##### 5.
 
