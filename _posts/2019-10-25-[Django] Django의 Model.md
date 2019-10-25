@@ -1,6 +1,6 @@
 ---
 title: "Django의 Model"
-tags: ["Django"]
+tags: ["Django", "Python"]
 ---
 
 
@@ -51,6 +51,7 @@ class Article(models.Model) :
         return f"title: {self.title} content: {self.content}"
         
     # 출력 양식을 정의. 이는 DRF에서 StringRelatedField와 연결된다
+    
     def __str__(self) :
         return f"title: {self.title} content: {self.content}"
 ```
@@ -172,6 +173,7 @@ Article.objects.filter(title="happy").count()
 ```python
 Article.objects.get(id=1)
 # pk = primary key
+
 Article.objects.get(pk=1)
 Article.objects.get(title="happy")
 ```
@@ -211,7 +213,6 @@ Article.objects.all()[5:10]
 a = Article.objects.get(id=1)
 a.content = "somthing"
 a.save()
-
 ```
 
 <br>
@@ -223,7 +224,6 @@ a.save()
 ```python
 a = Article.objects.get(id=1)
 a.delete()
-
 ```
 
 <br>
@@ -256,8 +256,8 @@ python manage.py shell
 
 ```python
 # admin.py
-admin.site.register(Job)
 
+admin.site.register(Job)
 ```
 
 - Model을 추가할 경우 admin 페이지에서 Model을 관리할 수 있으며, 편하게 볼 수 있다.
@@ -268,7 +268,6 @@ admin.site.register(Job)
 
 ```shell
 python manage.py createsuperuser
-
 ```
 
 <br>
@@ -279,7 +278,6 @@ python manage.py createsuperuser
 
 ```shell
 python manage.py makemigrations
-
 ```
 
 <br>
@@ -290,7 +288,6 @@ python manage.py makemigrations
 
 ```shell
 python manage.py migrate
-
 ```
 
 <br>
@@ -324,7 +321,6 @@ python manage.py sqlmigrate <table 이름> <migration 파일>
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 ```
 
 - **static 폴더 불러온 후**
