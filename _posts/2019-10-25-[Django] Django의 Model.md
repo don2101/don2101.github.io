@@ -196,7 +196,6 @@ Article.objects.order_by('id').all()
 
 ```python
 Article.objects.all()[5:10]
-
 ```
 
 <br>
