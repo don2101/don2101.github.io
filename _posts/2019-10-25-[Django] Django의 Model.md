@@ -1,6 +1,6 @@
 ---
 title: "Django의 Model"
-tags: "Django"
+tags: ["Django", "Python"]
 ---
 
 

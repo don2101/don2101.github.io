@@ -1,6 +1,6 @@
 ---
 title: "멀티프로세싱과 멀티스레딩"
-tags: "Computer Science"
+tags: ["Computer Science"]
 ---
 
 
