@@ -1,6 +1,6 @@
 ---
 title: "Django의 Model"
-tags: ["Django", "Python"]
+TAG: ["Django", "Python"]
 ---
 
 
@@ -328,3 +328,4 @@ python manage.py sqlmigrate <table 이름> <migration 파일>
 - django template language 사용해서 적용
 
 <br>
+
