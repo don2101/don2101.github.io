@@ -1,9 +1,6 @@
 ---
 title: "Django의 Model"
-tags: ["Django", "Python"]
 ---
-
-
 
 ## Django Model
 
