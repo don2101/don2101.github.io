@@ -170,6 +170,7 @@ def get_memo(request, memo_id):
 
     memo = Memo.objects.get(pk=memo_id)
     # serializer를 통해 data를 직렬화
+    
     # MemoSerializer에서 content에 대해서만 fields를 정의했으므로 content만 직렬화
     
     serializer = MemoSerializer(memo)
@@ -181,12 +182,12 @@ def get_memo(request, memo_id):
 
 
 
-##### write_only
+##### write_only 옵션
 
 ```python
 class MemoSerializer(serializers.ModelSerializer):
     # 쓰기 전용 옵션 설정
-    
+
    	content = serializers.CharField(write_only=True)
     
     class Meta:
@@ -197,6 +198,19 @@ class MemoSerializer(serializers.ModelSerializer):
 
 - serializer에서 field를 정의할 때,  `write_only` 옵션을 추가하여 속성을 쓰기전용으로 생성 가능
 - 쓰기전용으로 정의한 field는 **조회할 때 직렬화 되지 않는다**.
+
+
+
+##### many 옵션
+
+```python
+memos = Memo.objects.all()
+
+serializer = MemoSerializer(memos, many=True)
+```
+
+- 다수의 인스턴스를 직렬화 할 때 사용
+- list로 데이터를 직렬화
 
 
 
@@ -211,8 +225,8 @@ class MemoSerializer(serializers.ModelSerializer):
 
 ```python
 def post_memo(request):
-    # Serializer를 생성하며 data 인자로 request.data에 있는 값을 넘겨준다\n
-    
+    # Serializer를 생성하며 data 인자로 request.data에 있는 값을 넘겨준다
+
 	serializer = MemoSerializer(data=request.data)
     # 유효성 검사
     
@@ -220,10 +234,22 @@ def post_memo(request):
         # 모델에 저장
         
         serializer.save()
-    
 ```
 
+- Serializer의 data인자로 `request.data`를 넘기면, json의 `key ` 값과 serializer의 `field` 값을 비교하여, **이름이 일치하면** 데이터를 삽입
+- `.is_valid`는 유효성 검사를 실시하며, model이나 serializer에서 정의한 조건을 수행
+- `.save()`는 serializer와 연동된 model에 데이터를 저장하며, 해당 model의 **인스턴스를 반환**
 
+
+
+##### partial 옵션
+
+```python
+serializer = MemoSerializer(data=request.data, partial=True)
+```
+
+- `request.data`의 데이터 중 일부만을 직렬화 하며 삽입할 때 사용
+- request.data의 데이터 중 `key` 값이  serializer의 `field`와 일치하는 것만 삽입
 
 
 
