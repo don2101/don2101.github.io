@@ -192,3 +192,78 @@ if __name__ == '__main__':
     
 ```
 
+
+
+### 4. Daemon Thread
+
+- 쓰레드를 데몬으로 사용할 수 있다.
+- 백그라운드에서 실행할 스레드를 데몬으로 띄워서 동작
+- 스레드에 접근해서 조작을 할 수 없다.
+
+
+
+#### 그렇다면 왜 데몬으로 사용?
+
+- 그냥 스레드를 띄우면, 해당 스레드가 종료될 때 까지 기다린다.
+  - 즉, 메인프로그램이 종료되지 않음
+- **정기적**이고, **부수적**인 작업을 데몬 스레드로 띄운다.
+  - 메인 프로그램 종료시 같이 종료
+
+
+
+##### 데몬 스레딩 예시
+
+```python
+import time
+import logging
+import threading
+
+logging.basicConfig(level=logging.DEBUG, format="(%(threadName)s) %(message)s")
+
+def daemon():
+    logging.debug("start")
+    time.sleep(5)
+    logging.debug("Exit")
+
+
+def main():
+    t = threading.Thread(name="daemon", target=daemon)
+    # 스레드를 데몬으로 설정
+    
+    t.setDaemon(True)
+
+    t.start()
+
+if __name__ == "__main__":
+    main()
+```
+
+
+
+> 결과
+
+![](https://user-images.githubusercontent.com/19590371/67760760-3fd48f00-fa85-11e9-8b0a-107410d29bcd.PNG)
+
+- 예상한 결과를 5초 뒤에 Exit 또한 같이 띄우는 것인데 start만 출력하고 종료되었다.
+- 메인 프로그램이 종료되며 스레드도 기다리지 않고 같이 종료
+
+
+
+#### 데몬 스레드를 기다리게 하는 방법
+
+```python
+t.setDaemon(True)
+
+t.start()
+# join을 추가
+t.join()    
+```
+
+- 스레드의 `.join()`은 해당 스레드가 끝날 때 까지 기다리는 것을 의미한다.
+
+
+
+> 결과
+
+![](https://user-images.githubusercontent.com/19590371/67761013-c5583f00-fa85-11e9-8172-a4e3a4b1903a.PNG)
+
