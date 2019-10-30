@@ -43,7 +43,7 @@ tags: ["Computer Science"]
 
 <br>
 
-## Multitrheading
+## Multithreading
 
 <hr>
 
