@@ -1,3 +1,12 @@
+---
+title: "JWT기반 인증 방식"
+tags: ["Web", "Jwt"]
+---
+
+
+
+
+
 ## Json Web Token
 
 <hr>
@@ -85,7 +94,7 @@
 
 - 결국 Verify Signature에는 Header와 Payload의 정보가 담긴다
 
-`Verify Signature` = `Encoded Header` + `Encoded Payload` + `secret key`
+`Verify Signature` = `Encoded Header` + `Encoded Payload` + `secret key`
 
 - 복호화 할 때는 secret key가 필요하며 이는 서버에서 지정한다
 
