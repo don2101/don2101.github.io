@@ -37,7 +37,7 @@ pip install celery
 
 > Celery 작동 구조
 
-![Celery](https://user-images.githubusercontent.com/19590371/68525778-74173d80-0318-11ea-92b2-60c28d599c78.png)
+![](https://user-images.githubusercontent.com/19590371/68525778-74173d80-0318-11ea-92b2-60c28d599c78.png)
 
 <br>
 
