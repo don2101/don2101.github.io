@@ -1,5 +1,5 @@
 ---
-title: "Docker 기본 개념 portainer"
+title: "Docker와 Docker Portainer"
 tags: ["Docker"]
 ---
 
