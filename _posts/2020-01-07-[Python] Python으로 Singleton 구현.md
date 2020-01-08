@@ -1,8 +1,17 @@
+---
+title: "Python에서 Singleton 구현"
+tags: ["Design pattern", "Python"]
+---
+
+
+
+
+
 ## Singleton Pattern
 
 - 글로벌하게 접근 가능한 **한 개의 객체만을 생성**하는 패턴
 
-
+<br>
 
 #### 사용 이유
 
@@ -11,14 +20,14 @@
 - 클래스에 대한 단일 전역 객체 제공
 - 공유된 리소스에 대한 동시 제어
 
-
+<br>
 
 ### 1. 구현 방법
 
 - Constructor를 private으로 선언
 - 객체를 초기화 하는 static함수, 객체를 return하는 static함수 구현
 
-
+<br>
 
 #### Python에서 구현
 
@@ -40,7 +49,7 @@ print("Object created", s1)
 - `hasattr`을 통해 클래스 자체에서 `instance`를 갖고 있는지 확인한 후 없으면 `instance` 객체를 생성합니다.
 - `cls`: 클래스 그 자체를 의미하는 변수
 
-
+<br>
 
 > ##### 실행 결과
 
@@ -48,7 +57,7 @@ print("Object created", s1)
 
 - 매 요청마다 같은 객체를 반환
 
-
+<br>
 
 > #### \__init__과 self를 사용한다면
 
@@ -66,7 +75,7 @@ s1 = Singleton()
 print("Object created", s1)
 ```
 
-
+<br>
 
 > ##### 실행 결과
 
@@ -74,7 +83,7 @@ print("Object created", s1)
 
 - 매 요청마다 다른 객체를 반환
 
-
+<br>
 
 ### 2. Lazy Initialization
 
@@ -82,7 +91,7 @@ print("Object created", s1)
 - 객체가 꼭 필요한 시점에만 객체를 생성
 - 클래스를 초기화 한 후 **함수를 통해** 객체를 생성  
 
-
+<br>
 
 #### Python에서 구현
 
@@ -113,13 +122,13 @@ print(s2)
 - `__instance`: 클래스 전역 객체
 - `classmethod` 인 `getInstance`를 통해 객체 생성, 접근
 
-
+<br>
 
 >##### 실행 결과
 
 <img width="490" alt="스크린샷 2019-12-18 오후 10 55 25" src="https://user-images.githubusercontent.com/19590371/71091951-89219f00-21e9-11ea-8358-63828ed170de.png">
 
-
+<br>
 
 ##### s2에 대해...
 
@@ -129,7 +138,7 @@ print(s2)
 - s2는 정확하게 말하면 `getInstance` 를 통해 생성된 즉, **싱글턴 패턴을 통해 생성된 객체가 아닌** 이름이`Singleton` 인 클래스의 **생성자를 통해 생성된 객체**입니다.
 - 두 객체는 완전히 다른 객체이며, 싱글턴 패턴을 통해 생성된 객체에 접근하기 위해선 `getInstance` 메서드를 통해 접근해야 합니다.
 
-
+<br>
 
 #### Java에서 구현
 
@@ -161,14 +170,14 @@ print(s2)
 - 생성자에 접근하지 못하게 한 후 `getInstance`를 통해서만 객체에 접근
 - `static` 이기 때문에 매 번 같은 객체를 반환
 
-
+<br>
 
 #### Python vs Java
 
 - python은 클래스 자체를 제어하는 것이 가능하므로 생성자를 실행한 후 `classmethod`를 통해 전역 객체 생성
 - Java는 `static` 메서드를 통해 전역 객체를 생성
 
-
+<br>
 
 #### Module Singleton
 
@@ -180,7 +189,7 @@ print(s2)
 2. 됐다면, 해당 객체를 반환하고 아니면 import하여 instance화
 3. 모듈은 import하는 순간 초기화. 하지만, 같은 모듈을 import하면 초기화 하지 않는다.
 
-
+<br>
 
 ### 3. Monostate Singleton Pattern
 
@@ -188,14 +197,14 @@ print(s2)
 - 한 객체의 데이터의 유일성을 보장할 수 있는 방법
 - 객체를 파생해도 동일한 상태를 공유
 
-
+<br>
 
 #### 단점
 
 - 객체가 사용되지 않더라도 메모리 공간을 차지한다
 - 생성과 소멸이 잦으며, 많은 비용이 소모된다.
 
-
+<br>
 
 #### 구현 예시
 
@@ -227,13 +236,13 @@ print("b2 dict: ", b2.__dict__)
   - 이후 b2.x = 4 를 통해 x 변수를 dictionary로 관리
 - 해당 코드에서 `__shared_state` 에 있는 데이터를 dictionary로 관리하게 되고 모든 인스턴스에서 공유하게 된다.
 
-
+<br>
 
 >##### 실행 결과
 
 <img width="347" alt="스크린샷 2019-12-28 오후 4 31 37" src="https://user-images.githubusercontent.com/19590371/71540545-9419c380-298f-11ea-9914-d03a8d6e8af9.png">
 
-
+<br>
 
 #### \__new__를 사용한 구현
 
@@ -258,15 +267,13 @@ print(book1.__dict__)
 print(book2.__dict__)
 ```
 
-
+<br>
 
 > ##### 실행 결과
 
 <img width="284" alt="스크린샷 2020-01-02 오후 10 42 16" src="https://user-images.githubusercontent.com/19590371/71669769-33382400-2db1-11ea-9c4b-7b9c1dad8809.png">
 
-
-
-
+<br>
 
 ### 4. Singleton and Meta class
 
@@ -277,7 +284,7 @@ print(book2.__dict__)
 - 이미 정의된 클래스를 통해 새로운 형식의 클래스 생성 가능
   - 상속과 유사한 기능처럼 보인다
 
-
+<br>
 
 #### Meta class vs Inheritance
 
@@ -289,7 +296,7 @@ print(book2.__dict__)
 - OOP의 제약을 벗어난 극도로 dynamic한 프로그래밍 시에 사용 추천
   - [Stack overflow 답변](https://stackoverflow.com/questions/17801344/understanding-metaclass-and-inheritance-in-python)
 
-
+<br>
 
 > ##### 예시
 
@@ -299,14 +306,14 @@ print(book2.__dict__)
 - type 클래스가 int 클래스의 메타클래스
   - int가 type을 재정의
 
-
+<br>
 
 #### python에서 클래스
 
 - 기본적으로 python에서 `class` 를 사용해 정의한 클래스는 **클래스 이면서 객체**이다
 - **클래스 그 자체**이기도 하지만 **동시에 객체**이기도 하다
 
-
+<br>
 
 > ##### type을 통해 클래스의 자료형을 확인
 
@@ -323,7 +330,7 @@ print(type(Car))
 
 - python에서 모든 클래스는 클래스 이며 `type`이라는 **클래스의 객체**이기도 하다
 
-
+<br>
 
 #### type
 
@@ -339,7 +346,7 @@ print(type(Car))
   - 즉, 메타 클래스는 **클래스 생성을 제어**할 수 있다.
 - `type` 은 메타 클래스이며, **클래스를 생성하는 메타클래스**이다.
 
-
+<br>
 
 ##### type을 통한 클래스 및 인스턴스 생성
 
@@ -356,19 +363,19 @@ a1 = A()
 print(a1.x)
 ```
 
-
+<br>
 
 > ##### 출력 결과
 
 <img width="567" alt="스크린샷 2020-01-02 오후 11 22 21" src="https://user-images.githubusercontent.com/19590371/71671623-da6b8a00-2db6-11ea-965c-24da63d784e7.png">
 
-
+<br>
 
 #### 그래서...
 
 - 메타 클래스를 통해 클래스와 객체 생성을 제어할 수 있으며, 이는 **싱글톤을 생성**하는 용도로 사용할 수 있다는 것과 같다
 
-
+<br>
 
 #### 메타 클래스를 통한 싱글턴 생성
 
@@ -397,13 +404,13 @@ print(book1)
 print(book2)
 ```
 
-
+<br>
 
 > ##### 출력 결과
 
 <img width="272" alt="스크린샷 2020-01-02 오후 11 43 24" src="https://user-images.githubusercontent.com/19590371/71672561-b1002d80-2db9-11ea-8a7e-e55dd5947b80.png">
 
-
+<br>
 
 ### 5. Examples
 
@@ -414,7 +421,7 @@ print(book2)
   - DB의 일관성을 보존해야 하며, **연산간 충돌**이 없어야 한다.
   - 다수의 DB 연산을 처리하려면 메모리와 CPU를 효율적으로 사용해야 한다.
 
-
+<br>
 
 > ##### 싱글턴을 통해 하나의 DB 접속 객체 생성
 
@@ -458,7 +465,7 @@ print(db2)
 2. 웹 앱이 DB 요청을 할 때 마다 `Database` 클래스 객체를 한개만 생성하여 DB 동기화를 보장
    - 리소스를 하나만 사용하여 CPU, 메모리 효율적 사용
 
-
+<br>
 
 #### 인프라 상태 확인
 
@@ -509,15 +516,15 @@ for i in range(4):
 
 ```
 
-
+<br>
 
 > ##### 실행 결과
 
 <img width="277" alt="스크린샷 2020-01-07 오후 11 42 35" src="https://user-images.githubusercontent.com/19590371/71903443-7296b400-31a7-11ea-903d-25de6c2558c5.png">
 
-- 동일한 객체 `status_check1`, `status_check2` 에서 `_servers` 배열을 조작
+- 동일한 객체 `status_check1`, `status_check2` 에서 `_servers` 배열을 조작
 
-
+<br>
 
 ### 6. 정리
 
@@ -526,7 +533,7 @@ for i in range(4):
 - 같은 객체에 여러 참조자가 있을 수 있다.
 - 전역 객체에 종속적인 클래스간 관계가 복잡하며, 전역 객체 수정이 다른 클래스에 영향을 미칠 수 있다.
 
-
+<br>
 
 #### 싱글턴을 사용하는 상황
 
@@ -534,3 +541,4 @@ for i in range(4):
 - 글로벌 액세스를 제공해야 하는 경우
 - **클래스 객체가 한 개만 필요한 경우**에 사용
 
+<br>
